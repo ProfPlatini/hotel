@@ -1,26 +1,19 @@
-## Stack principal
-- Linguagem de programação: Python
-- Frameworks: Agno, OpenAi, Supabase, Flask, Flask-Cors
-- FrontEnd: HTML, CSS e JS
+## Execução
+- Backend e ponto de entrada: `app.py`; frontend está em `static/index.html`, servido por `GET /`.
+- Ambiente Windows já incluído em `.venv`: `.venv\Scripts\python.exe -m pip install -r requirements.txt` e `.venv\Scripts\python.exe app.py`.
+- O Flask escuta em `0.0.0.0:8000` com `debug=True`.
+- Não há testes, lint, build, CI ou outro executor configurado; a verificação disponível é iniciar o servidor e exercitar as rotas.
 
-## Como rodar
-- Executar o servidor: `python app.py` (sobe Flask na porta `8000`).
-- Usar o ambiente virtual já existente: `.venv` (ativação: `.venv\Scripts\activate` no Windows).
-- Não há `requirements.txt` nem build/lint/test configurados; o projeto não tem testes nem CI.
+## Configuração
+- `app.py` chama `load_dotenv()` e exige `SUPABASE_URL`, `SUPABASE_KEY` e a chave da API da OpenAI no ambiente; não leia nem exponha `.env`.
+- O cliente Supabase é criado na importação e usa a tabela `reservas`; sem credenciais válidas o backend não inicia corretamente.
 
-## Arquitetura
-- `app.py` é o único backend (single-file): contém o agente Agno (OpenAIChat `gpt-4o-mini`), o cliente Supabase e todas as rotas Flask.
-- Frontend fica em `static/index.html` (CSS e JS inline, sem bibliotecas). É servido na rota raiz `/` via `app.send_static_file`.
-- Config do Supabase vem do `.env` (`SUPABASE_URL`, `SUPABASE_KEY`) via `load_dotenv()`.
-- Rotas: `POST /agente` e `POST /perguntar` (duplicadas, ambas chamam `agente.run`), `POST /reservas` (insere na tabela `reservas` do Supabase) e `GET /reservas` (lista reservas).
+## Contratos E Arquitetura
+- `app.py` concentra Flask, Agno (`OpenAIChat` com `gpt-4o-mini`), Supabase e todas as rotas; não há separação em pacotes.
+- `POST /agente` e `POST /perguntar` recebem JSON com `pergunta` e chamam o mesmo agente, mas retornam chaves diferentes: `resposta` e `mensagem`, respectivamente.
+- `POST /reservas` insere o JSON recebido em `reservas`; `GET /reservas` retorna os registros da tabela. O frontend usa diretamente `/agente` e `/reservas`.
+- Não altere a `description` do agente: ela é a fonte dos quartos, preços e serviços também apresentados no frontend.
 
-## Railguards
-- Não alterar a lógica do projeto.
-- Não alterar e criar arquivos sem pedir permissão.
-- Não instalar bibliotecas desnecessárias.
-- Não expor e não ler arquivos do `.env` e do `.gitignore`.
-- Não alterar a `description` do agente de hotel (contém quartos, preços e serviços citados também no frontend).
-
-## Preferências
-- Responder sempre em PT-BR.
-- Colocar comentários nos códigos, facilitando a leitura de um programador iniciante.
+## Restrições
+- Preserve a lógica e o comportamento existentes quando a tarefa não pedir explicitamente uma mudança; não adicione dependências sem necessidade.
+- Responda em PT-BR e mantenha comentários curtos em código novo quando ajudarem iniciantes a entender a lógica.

@@ -13,16 +13,16 @@
         }
 
         :root {
-            --roxo: #6c3fa0;
-            --roxo-escuro: #4a2570;
-            --roxo-claro: #f3eafa;
-            --dourado: #d4a843;
-            --dourado-claro: #f9f0d4;
-            --azul-noite: #1e1e3a;
-            --cinza-claro: #f5f5f8;
+            --verde: #238b5b;
+            --verde-escuro: #145239;
+            --verde-claro: #e6f5ed;
+            --verde-destaque: #56b77d;
+            --verde-destaque-claro: #e4f5e9;
+            --verde-noite: #102f27;
+            --cinza-claro: #f3f8f5;
             --branco: #ffffff;
             --texto: #333;
-            --sombra: 0 4px 20px rgba(108, 63, 160, 0.12);
+            --sombra: 0 4px 20px rgba(20, 82, 57, 0.12);
         }
 
         body {
@@ -34,7 +34,7 @@
 
         /* ==================== CABEÇALHO ==================== */
         header {
-            background: linear-gradient(135deg, var(--azul-noite), var(--roxo-escuro));
+            background: linear-gradient(135deg, var(--verde-noite), var(--verde-escuro));
             color: var(--branco);
             text-align: center;
             padding: 3rem 1rem;
@@ -62,7 +62,7 @@
         .secao-titulo {
             text-align: center;
             font-size: 1.8rem;
-            color: var(--roxo);
+            color: var(--verde);
             margin-bottom: 1.5rem;
             position: relative;
         }
@@ -72,7 +72,7 @@
             display: block;
             width: 60px;
             height: 4px;
-            background: var(--dourado);
+            background: var(--verde-destaque);
             margin: 0.5rem auto 0;
             border-radius: 2px;
         }
@@ -91,21 +91,36 @@
             text-align: center;
             box-shadow: var(--sombra);
             transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 5px solid var(--dourado);
+            border-top: 5px solid var(--verde-destaque);
         }
 
         .quarto-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 8px 30px rgba(108, 63, 160, 0.2);
+            box-shadow: 0 8px 30px rgba(20, 82, 57, 0.2);
         }
 
         .quarto-card .icone {
+            color: var(--verde);
             font-size: 3rem;
+            height: 3rem;
             margin-bottom: 0.8rem;
         }
 
+        .quarto-card .icone svg,
+        .servico-card .servico-icone svg,
+        .chat-header svg {
+            width: 1em;
+            height: 1em;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            vertical-align: middle;
+        }
+
         .quarto-card h3 {
-            color: var(--roxo);
+            color: var(--verde);
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
@@ -113,7 +128,7 @@
         .quarto-card .preco {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--dourado);
+            color: var(--verde-destaque);
             margin-bottom: 0.5rem;
         }
 
@@ -149,12 +164,13 @@
         }
 
         .servico-card .servico-icone {
+            color: var(--verde);
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
         }
 
         .servico-card h4 {
-            color: var(--roxo-escuro);
+            color: var(--verde-escuro);
             font-size: 1rem;
         }
 
@@ -176,7 +192,7 @@
 
         .reserva-form label {
             font-weight: 600;
-            color: var(--roxo-escuro);
+            color: var(--verde-escuro);
             font-size: 0.95rem;
         }
 
@@ -193,11 +209,11 @@
         .reserva-form input:focus,
         .reserva-form select:focus {
             outline: none;
-            border-color: var(--roxo);
+            border-color: var(--verde);
         }
 
         .reserva-btn {
-            background: linear-gradient(135deg, var(--roxo), var(--roxo-escuro));
+            background: linear-gradient(135deg, var(--verde), var(--verde-escuro));
             color: var(--branco);
             border: none;
             padding: 0.9rem;
@@ -244,7 +260,7 @@
 
         .reservas-lista h3 {
             text-align: center;
-            color: var(--roxo);
+            color: var(--verde);
             margin-bottom: 1rem;
         }
 
@@ -264,7 +280,7 @@
 
         .reserva-item .reserva-nome {
             font-weight: 600;
-            color: var(--roxo-escuro);
+            color: var(--verde-escuro);
         }
 
         .reserva-item .reserva-info {
@@ -290,7 +306,7 @@
         }
 
         .chat-header {
-            background: linear-gradient(135deg, var(--roxo), var(--roxo-escuro));
+            background: linear-gradient(135deg, var(--verde), var(--verde-escuro));
             color: var(--branco);
             padding: 1rem 1.5rem;
             font-size: 1.1rem;
@@ -321,22 +337,22 @@
 
         .chat-mensagem.hotel {
             align-self: flex-start;
-            background: var(--roxo-claro);
-            color: var(--roxo-escuro);
+            background: var(--verde-claro);
+            color: var(--verde-escuro);
             border-bottom-left-radius: 4px;
         }
 
         .chat-mensagem.hospede {
             align-self: flex-end;
-            background: var(--roxo);
+            background: var(--verde);
             color: var(--branco);
             border-bottom-right-radius: 4px;
         }
 
         .chat-digitando {
             align-self: flex-start;
-            background: var(--roxo-claro);
-            color: var(--roxo-escuro);
+            background: var(--verde-claro);
+            color: var(--verde-escuro);
             padding: 0.75rem 1rem;
             border-radius: 14px;
             border-bottom-left-radius: 4px;
@@ -379,11 +395,11 @@
 
         .chat-input-area input:focus {
             outline: none;
-            border-color: var(--roxo);
+            border-color: var(--verde);
         }
 
         .chat-enviar {
-            background: var(--roxo);
+            background: var(--verde);
             color: var(--branco);
             border: none;
             padding: 0.7rem 1.3rem;
@@ -395,7 +411,7 @@
         }
 
         .chat-enviar:hover {
-            background: var(--roxo-escuro);
+            background: var(--verde-escuro);
         }
 
         .chat-enviar:active {
@@ -406,7 +422,7 @@
         footer {
             text-align: center;
             padding: 2rem;
-            background: var(--azul-noite);
+            background: var(--verde-noite);
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
             margin-top: 2rem;
@@ -461,19 +477,19 @@
         <h2 class="secao-titulo">Nossos Quartos</h2>
         <div class="quartos-grid">
             <div class="quarto-card">
-                <div class="icone">🛏️</div>
+                <div class="icone" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M6 27h36v11H6z"/><path d="M6 27V18h10a7 7 0 0 1 7 7v2M23 27V18h12a7 7 0 0 1 7 7v2M10 38v4M38 38v4"/></svg></div>
                 <h3>Standard</h3>
                 <div class="preco">R$ 400 <span>/noite</span></div>
                 <p>Conforto básico com qualidade travesseiro-certificada. Perfeito para quem quer dormir sem pensar.</p>
             </div>
             <div class="quarto-card">
-                <div class="icone">🌙</div>
+                <div class="icone" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M36 30.5A15 15 0 0 1 17.5 12 15 15 0 1 0 36 30.5Z"/><path d="m34 11 1.5 3.5L39 16l-3.5 1.5L34 21l-1.5-3.5L29 16l3.5-1.5L34 11Z"/></svg></div>
                 <h3>Deluxe</h3>
                 <div class="preco">R$ 600 <span>/noite</span></div>
                 <p>Cama king-size, blackout perfeito e travesseiro com certificado de sono profundo. Sonhe acordado!</p>
             </div>
             <div class="quarto-card">
-                <div class="icone">👑</div>
+                <div class="icone" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="m7 15 9 8 8-13 8 13 9-8-4 23H11L7 15Z"/><path d="M11 34h30M13 39h22"/></svg></div>
                 <h3>Suíte Presidencial</h3>
                 <div class="preco">R$ 1.000 <span>/noite</span></div>
                 <p>O ápice do luxo para insomnia royalty. Banheira, varanda e um travesseiro que é obra de arte.</p>
@@ -486,23 +502,23 @@
         <h2 class="secao-titulo">Serviços</h2>
         <div class="servicos-grid">
             <div class="servico-card">
-                <div class="servico-icone">💪</div>
+                <div class="servico-icone" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M16 28 9 21a5 5 0 0 1 7-7l8 8 8-8a5 5 0 0 1 7 7l-7 7-5 5a7 7 0 0 1-10 0l-1-1Z"/><path d="m13 25 5-5M35 25l-5-5"/></svg></div>
                 <h4>Academia</h4>
             </div>
             <div class="servico-card">
-                <div class="servico-icone">🥐</div>
+                <div class="servico-icone" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 29c2-10 11-17 21-17 7 0 11 4 11 9 0 8-8 15-18 15-7 0-13-3-14-7l10-1 2-7 6 5 7-6"/></svg></div>
                 <h4>Café da Manhã</h4>
             </div>
             <div class="servico-card">
-                <div class="servico-icone">👕</div>
+                <div class="servico-icone" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="m17 10 7 4 7-4 9 6-5 9-4-3v16H17V22l-4 3-5-9 9-6Z"/><path d="M21 14h6"/></svg></div>
                 <h4>Lavanderia</h4>
             </div>
             <div class="servico-card">
-                <div class="servico-icone">🍽️</div>
+                <div class="servico-icone" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M12 8v16M8 8v8a4 4 0 0 0 8 0V8M12 24v16M31 8v32M31 8c6 4 8 10 0 15"/></svg></div>
                 <h4>Restaurante</h4>
             </div>
             <div class="servico-card">
-                <div class="servico-icone">🏊</div>
+                <div class="servico-icone" aria-hidden="true"><svg viewBox="0 0 48 48"><circle cx="26" cy="10" r="4"/><path d="m20 24 6-7 7 5M26 17l-3 10-7 5M29 23l8 7M8 36c4 4 8 4 12 0 4 4 8 4 12 0 4 4 8 4 12 0"/></svg></div>
                 <h4>Piscina</h4>
             </div>
         </div>
@@ -551,11 +567,12 @@
         <h2 class="secao-titulo">Fale com o Hotel</h2>
         <div class="chat-container">
             <div class="chat-header">
-                🛎️ Atendente Virtual
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h16M6 18v-5a6 6 0 0 1 12 0v5M9 18v2h6v-2M12 7v1"/></svg>
+                Atendente Virtual
             </div>
             <div class="chat-mensagens" id="chat-mensagens">
                 <div class="chat-mensagem hotel">
-                    Olá! Bem-vindo ao Hotel Travesseiro Nervoso. Como posso te ajudar hoje? 😴
+                    Olá! Bem-vindo ao Hotel Travesseiro Nervoso. Como posso te ajudar hoje?
                 </div>
             </div>
             <div class="chat-digitando" id="chat-digitando">
